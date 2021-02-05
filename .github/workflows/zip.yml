@@ -38,3 +38,5 @@ jobs:
         run: echo Hello, world!
       - name: Zip stuff
         run: zip -9 ${{matrix.zip_out}} ${{matrix.zip_in}}
+      - name: Tree
+        run: tree
