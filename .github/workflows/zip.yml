@@ -16,6 +16,7 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     strategy:
+      fail-fast: false
       matrix:
         os: [macos-latest, ubuntu-latest]
         include: 
@@ -39,4 +40,5 @@ jobs:
       - name: Zip stuff
         run: zip -9 ${{matrix.zip_out}} ${{matrix.zip_in}}
       - name: Tree
+        if: matrix.os == 'ubuntu-latest'
         run: tree
